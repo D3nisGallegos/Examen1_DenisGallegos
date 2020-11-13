@@ -56,7 +56,7 @@ public class Personas {
     
     //MA: 
     public String toStringPersonas(){
-        
+        return "Nombre "+nombre+" Edad: "+edad+" Sexo: "+sexo+" Arma:"+arma.toStringArma();
     }
     
     
