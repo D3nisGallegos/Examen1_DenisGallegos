@@ -7,6 +7,8 @@ public class Arma {
     
     private String tipo; 
     private double porcentage; 
+    
+    //CONSTRUCTORES: 
 
     public Arma() {
     }

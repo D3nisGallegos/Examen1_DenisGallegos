@@ -9,6 +9,8 @@ public class Personas {
     private int edad; 
     private String sexo; 
     private Arma arma; 
+    
+    //CONSTRUCTORES: 
 
     public Personas() {
     }

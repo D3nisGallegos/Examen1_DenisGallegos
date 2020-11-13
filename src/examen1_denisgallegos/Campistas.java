@@ -7,6 +7,8 @@ public class Campistas extends Personas{
     
     private String tipodecampista; 
     private String estado; 
+    
+    //CONSTRUCTORES:
 
     public Campistas() {
         super();

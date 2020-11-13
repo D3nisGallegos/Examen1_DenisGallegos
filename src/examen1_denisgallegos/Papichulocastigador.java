@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public class Papichulocastigador extends Personas{
     
     private int muertos; 
+    
+    //CONSTRUCTORES: 
 
     public Papichulocastigador() {
         super();
