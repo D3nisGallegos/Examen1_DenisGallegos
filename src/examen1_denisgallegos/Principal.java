@@ -12,6 +12,7 @@ public class Principal extends javax.swing.JFrame {
     private Button button1;
 
     ArrayList campistas = new ArrayList();
+    ArrayList papichuloscatigadores = new ArrayList();
     
     public Principal() {
         initComponents();
@@ -31,6 +32,43 @@ public class Principal extends javax.swing.JFrame {
             v = false; 
         }
         return v; 
+    }
+    
+    public String Imprimirjasons(){
+        String h = "";
+        for (int c = 0; c < papichuloscatigadores.size();c++){
+            Papichulocastigador objeto = (Papichulocastigador) papichuloscatigadores.get(c);
+            String n = objeto.toStringPapichulocastigador();
+            h += "[indice: "+c+"]-"+n;
+            h += "\n";
+        }
+        return h;
+    }
+    
+    public String imprimirvivos(){
+        String h ="";
+        for (int c  =0; c < campistas.size();c++){
+            Campistas objeto = (Campistas) campistas.get(c);
+            String n = objeto.getEstado(); 
+            if (n == "Vivo"){
+                h += "[indice "+c+"]-"+objeto.toStringCampistas();
+                h+= "\n";
+            }
+        }
+        return h;
+    }
+    
+    public String imprimirmuertos(){
+        String h ="";
+        for (int c  =0; c < campistas.size();c++){
+            Campistas objeto = (Campistas) campistas.get(c);
+            String n = objeto.getEstado(); 
+            if (n == "Desaparecido"){
+                h += "[indice "+c+"]-"+objeto.toStringCampistas();
+                h+= "\n";
+            }
+        }
+        return h;
     }
     
 
@@ -61,17 +99,17 @@ public class Principal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
         jLabel12 = new javax.swing.JLabel();
         jComboBox6 = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jFormattedTextField5 = new javax.swing.JFormattedTextField();
         jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
         panel3 = new java.awt.Panel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -252,6 +290,11 @@ public class Principal extends javax.swing.JFrame {
 
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("AGREGAR ");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setText("ELIMINAR");
@@ -269,8 +312,8 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(jLabel11)
-                        .addGap(31, 31, 31)
-                        .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -279,17 +322,17 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField2)
-                            .addComponent(jFormattedTextField2)
-                            .addComponent(jComboBox4, 0, 153, Short.MAX_VALUE)))
+                            .addComponent(jComboBox4, 0, 153, Short.MAX_VALUE)
+                            .addComponent(jTextField7)))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(190, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,27 +341,27 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(27, 27, 27)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(33, 33, 33)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(23, 23, 23)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -407,10 +450,10 @@ public class Principal extends javax.swing.JFrame {
         String nombre = jTextField3.getText().toString() + "";
         String n = jTextField1.getText().toString();
         boolean v = validar(n);
-        String sexo = jComboBox7.getItemAt(0).toString();
-        String tipo = jComboBox8.getItemAt(0).toString();
-        String estado = jComboBox9.getItemAt(0).toString();
-        String tipodearma = jComboBox10.getItemAt(0).toString();
+        String sexo = jComboBox7.getSelectedItem().toString();
+        String tipo = jComboBox8.getSelectedItem().toString();
+        String estado = jComboBox9.getSelectedItem().toString();
+        String tipodearma = jComboBox10.getSelectedItem().toString();
         String n2 = jTextField4.getText().toString();
         boolean v2 = validar(n2);
         if (v == true && v2 == true){
@@ -420,6 +463,12 @@ public class Principal extends javax.swing.JFrame {
             Campistas campista = new Campistas(tipo, estado, nombre, edad, sexo, arma);
             campistas.add(campista);
             JOptionPane.showMessageDialog(null, "Campista agregado correctamente", "Agregado", 1);
+            String h = imprimirvivos();
+            String h2 = imprimirmuertos();
+            jTextArea1.setText("");
+            jTextArea1.setText(h);
+            jTextArea2.setText("");
+            jTextArea2.setText(h2);
         }
         
         
@@ -428,6 +477,30 @@ public class Principal extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       String nombre = jTextField2.getText().toString();
+       String n = jTextField7.getText().toString();
+       boolean v = validar(n);
+       String sexo = jComboBox4.getSelectedItem().toString();
+       String n2 = jTextField6.getText().toString();
+       boolean v2 = validar(n2);
+       String tipodearma = jComboBox6.getSelectedItem().toString();
+       String n3 = jTextField5.getText().toString();
+       boolean v3 = validar(n3);
+       if (v == true && v2 == true && v3 == true){
+           int porcentage = Integer.parseInt(n3);
+           int muertos = Integer.parseInt(n2);
+           int edad = Integer.parseInt(n);
+           Arma arma = new Arma(tipodearma, porcentage);
+           Papichulocastigador jason = new Papichulocastigador(muertos, nombre, edad, sexo, arma);
+           JOptionPane.showMessageDialog(null, "Jason agregado correctamente", "Agregado", 1);
+           papichuloscatigadores.add(jason);
+           String h = Imprimirjasons();
+           jTextArea3.setText("");
+           jTextArea3.setText(h);
+       }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     public static void main(String args[]) {
@@ -469,13 +542,10 @@ public class Principal extends javax.swing.JFrame {
     public javax.swing.JButton jButton7;
     public javax.swing.JComboBox<String> jComboBox10;
     public javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox6;
+    public javax.swing.JComboBox<String> jComboBox6;
     public javax.swing.JComboBox<String> jComboBox7;
     public javax.swing.JComboBox<String> jComboBox8;
     public javax.swing.JComboBox<String> jComboBox9;
-    public javax.swing.JFormattedTextField jFormattedTextField2;
-    public javax.swing.JFormattedTextField jFormattedTextField4;
-    public javax.swing.JFormattedTextField jFormattedTextField5;
     public javax.swing.JLabel jLabel11;
     public javax.swing.JLabel jLabel12;
     public javax.swing.JLabel jLabel13;
@@ -503,6 +573,9 @@ public class Principal extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
     public javax.swing.JTextField jTextField4;
+    public javax.swing.JTextField jTextField5;
+    public javax.swing.JTextField jTextField6;
+    public javax.swing.JTextField jTextField7;
     public java.awt.Panel panel1;
     public java.awt.Panel panel3;
     public java.awt.Panel panel4;

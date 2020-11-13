@@ -28,7 +28,7 @@ public class Papichulocastigador extends Personas{
 
     //MA:
     public String toStringPapichulocastigador() {
-        return toStringPersonas()+" Desaparecidos: "+muertos;
+        return toStringPersonas()+"Desaparecidos: "+muertos;
     }
     
     

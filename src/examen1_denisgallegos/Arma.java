@@ -36,7 +36,7 @@ public class Arma {
     
     //MA: 
     public String toStringArma(){
-        return "Tipo: "+tipo+" Damage: "+porcentage; 
+        return "[Tipo: "+tipo+" Damage: "+porcentage+"%"+"]"+"\n"; 
     }
     
     
