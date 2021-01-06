@@ -19,6 +19,7 @@ public class Papichulocastigador extends Personas{
         super(nombre, edad, sexo, arma);
         this.muertos = muertos;
     }
+    
     public int getMuertos(){
         return muertos; 
     }

@@ -6,14 +6,14 @@ package examen1_denisgallegos;
 public class Arma {
     
     private String tipo; 
-    private double porcentage; 
+    private int porcentage; 
     
     //CONSTRUCTORES: 
 
     public Arma() {
     }
 
-    public Arma(String tipo, double porcentage) {
+    public Arma(String tipo, int porcentage) {
         this.tipo = tipo;
         this.porcentage = porcentage;
     }
@@ -28,17 +28,17 @@ public class Arma {
         this.tipo = tipo;
     }
 
-    public double getPorcentage() {
+    public int getPorcentage() {
         return porcentage;
     }
 
-    public void setPorcentage(double porcentage) {
+    public void setPorcentage(int porcentage) {
         this.porcentage = porcentage;
     }
     
     //MA: 
     public String toStringArma(){
-        return "[Tipo: "+tipo+" Damage: "+porcentage+"%"+"]"+"\n"; 
+        return "[Tipo: "+tipo+", Damage: "+porcentage+"%"+"] "+"\n"; 
     }
     
     

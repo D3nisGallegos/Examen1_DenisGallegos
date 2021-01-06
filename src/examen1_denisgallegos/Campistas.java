@@ -39,7 +39,7 @@ public class Campistas extends Personas{
     
     //MA: 
     public String toStringCampistas(){
-        return toStringPersonas()+"Cargo: "+tipodecampista+" Estado: "+estado;
+        return toStringPersonas()+"Cargo: "+tipodecampista+", Estado: "+estado;
     }
     
     
